@@ -66,12 +66,21 @@ When controller code runs on Databricks cluster compute, local machine `.env` is
 1. Create a Databricks secret scope (once):
 
 ```bash
+# Legacy Databricks CLI (0.18.x)
+databricks secrets create-scope --scope ddca
+
+# New Databricks CLI
 databricks secrets create-scope ddca
 ```
 
 2. Add secrets:
 
 ```bash
+# Legacy Databricks CLI (0.18.x)
+databricks secrets put --scope ddca --key github_token
+databricks secrets put --scope ddca --key so_api_key
+
+# New Databricks CLI
 databricks secrets put-secret ddca github_token
 databricks secrets put-secret ddca so_api_key
 ```
