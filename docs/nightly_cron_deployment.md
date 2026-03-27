@@ -59,6 +59,36 @@ This job contains tasks:
 python code/orchestration/nightly_pipeline.py
 ```
 
+## Configure API Keys On Databricks Compute (Manual)
+
+When controller code runs on Databricks cluster compute, local machine `.env` is not automatically available.
+
+1. Create a Databricks secret scope (once):
+
+```bash
+databricks secrets create-scope ddca
+```
+
+2. Add secrets:
+
+```bash
+databricks secrets put-secret ddca github_token
+databricks secrets put-secret ddca so_api_key
+```
+
+3. In Databricks UI, open your cluster and set environment variables:
+
+- `GITHUB_TOKEN={{secrets/ddca/github_token}}`
+- `SO_API_KEY={{secrets/ddca/so_api_key}}`
+
+4. Restart the cluster.
+
+5. Keep strict validation enabled in `.env` (recommended):
+
+- `DDCA_REQUIRE_INGESTION_KEYS="true"`
+
+With strict validation enabled, controller runs fail fast if `GITHUB_TOKEN` or `SO_API_KEY` are missing at runtime.
+
 ## Deploy Scheduled Cron-Like Run On Databricks
 
 Use Databricks Workflows schedule (Quartz cron) instead of OS cron when you want scheduling inside Databricks.

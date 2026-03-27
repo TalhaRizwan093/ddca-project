@@ -1,8 +1,26 @@
 import os
 import time
+from pathlib import Path
 from typing import Any
 
 import requests
+try:
+    from dotenv import load_dotenv
+except ModuleNotFoundError:
+    def load_dotenv(*args, **kwargs):
+        return False
+
+
+def _load_env_file() -> None:
+    """Load .env from cwd or nearest parent directory."""
+    for candidate_root in [Path.cwd(), *Path.cwd().parents]:
+        env_file = candidate_root / ".env"
+        if env_file.is_file():
+            load_dotenv(env_file)
+            return
+
+
+_load_env_file()
 
 
 TERMINAL_STATES = {"TERMINATED", "SKIPPED", "INTERNAL_ERROR"}
@@ -18,22 +36,42 @@ class DatabricksJobsClient:
     def __init__(self) -> None:
         self.host = _clean_env(os.getenv("DATABRICKS_HOST"))
         self.token = _clean_env(os.getenv("DATABRICKS_TOKEN"))
+        self._sdk_config = None
 
         if not self.host or not self.token:
-            raise EnvironmentError("DATABRICKS_HOST and DATABRICKS_TOKEN must be set")
+            try:
+                from databricks.sdk import WorkspaceClient
+
+                workspace_client = WorkspaceClient()
+                self._sdk_config = workspace_client.config
+                if not self.host:
+                    self.host = _clean_env(getattr(self._sdk_config, "host", ""))
+            except Exception:
+                self._sdk_config = None
+
+        if not self.host:
+            raise EnvironmentError("DATABRICKS_HOST must be set or available from Databricks runtime credentials")
 
         self.base_url = self.host.rstrip("/")
-        self.headers = {
-            "Authorization": f"Bearer {self.token}",
-            "Content-Type": "application/json",
-        }
+
+    def _auth_headers(self) -> dict[str, str]:
+        headers = {"Content-Type": "application/json"}
+        if self.token:
+            headers["Authorization"] = f"Bearer {self.token}"
+            return headers
+
+        if self._sdk_config is not None:
+            headers.update(self._sdk_config.authenticate())
+            return headers
+
+        raise EnvironmentError("DATABRICKS_TOKEN must be set or available from Databricks runtime credentials")
 
     def _request(self, method: str, path: str, params: dict[str, Any] | None = None, payload: dict[str, Any] | None = None) -> dict[str, Any]:
         url = f"{self.base_url}{path}"
         response = requests.request(
             method=method,
             url=url,
-            headers=self.headers,
+            headers=self._auth_headers(),
             params=params,
             json=payload,
             timeout=120,
