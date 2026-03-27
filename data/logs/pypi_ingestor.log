@@ -1,0 +1,72 @@
+2026-03-24 00:26:37,856 INFO PyPI Bronze ingestion started | run=20260323_222637
+2026-03-24 00:26:37,856 INFO --- Processing: pandas ---
+2026-03-24 00:26:39,463 INFO Saved -> data\bronze\pypi\metadata\pandas_20260323_222637.json
+2026-03-24 00:26:41,205 INFO Saved -> data\bronze\pypi\downloads_recent\pandas_20260323_222637.json
+2026-03-24 00:26:43,025 INFO Saved -> data\bronze\pypi\downloads_overall\pandas_20260323_222637.json
+2026-03-24 00:26:44,026 INFO --- Processing: requests ---
+2026-03-24 00:26:45,481 INFO Saved -> data\bronze\pypi\metadata\requests_20260323_222637.json
+2026-03-24 00:26:47,138 INFO Saved -> data\bronze\pypi\downloads_recent\requests_20260323_222637.json
+2026-03-24 00:26:48,893 INFO Saved -> data\bronze\pypi\downloads_overall\requests_20260323_222637.json
+2026-03-24 00:26:49,895 INFO --- Processing: fastapi ---
+2026-03-24 00:26:51,304 INFO Saved -> data\bronze\pypi\metadata\fastapi_20260323_222637.json
+2026-03-24 00:26:53,038 INFO Saved -> data\bronze\pypi\downloads_recent\fastapi_20260323_222637.json
+2026-03-24 00:26:54,925 INFO Saved -> data\bronze\pypi\downloads_overall\fastapi_20260323_222637.json
+2026-03-24 00:26:55,926 INFO --- Processing: numpy ---
+2026-03-24 00:26:57,551 INFO Saved -> data\bronze\pypi\metadata\numpy_20260323_222637.json
+2026-03-24 00:26:59,178 INFO Saved -> data\bronze\pypi\downloads_recent\numpy_20260323_222637.json
+2026-03-24 00:27:00,917 INFO Saved -> data\bronze\pypi\downloads_overall\numpy_20260323_222637.json
+2026-03-24 00:27:01,919 INFO --- Processing: flask ---
+2026-03-24 00:27:03,208 INFO Saved -> data\bronze\pypi\metadata\flask_20260323_222637.json
+2026-03-24 00:27:04,842 INFO Saved -> data\bronze\pypi\downloads_recent\flask_20260323_222637.json
+2026-03-24 00:27:06,752 INFO Saved -> data\bronze\pypi\downloads_overall\flask_20260323_222637.json
+2026-03-24 00:27:07,753 INFO --- Processing: django ---
+2026-03-24 00:27:09,223 INFO Saved -> data\bronze\pypi\metadata\django_20260323_222637.json
+2026-03-24 00:27:10,903 INFO Saved -> data\bronze\pypi\downloads_recent\django_20260323_222637.json
+2026-03-24 00:27:12,714 INFO Saved -> data\bronze\pypi\downloads_overall\django_20260323_222637.json
+2026-03-24 00:27:13,716 INFO --- Processing: scikit-learn ---
+2026-03-24 00:27:15,229 INFO Saved -> data\bronze\pypi\metadata\scikit-learn_20260323_222637.json
+2026-03-24 00:27:16,878 INFO Saved -> data\bronze\pypi\downloads_recent\scikit-learn_20260323_222637.json
+2026-03-24 00:27:18,684 INFO Saved -> data\bronze\pypi\downloads_overall\scikit-learn_20260323_222637.json
+2026-03-24 00:27:19,685 INFO --- Processing: pytorch ---
+2026-03-24 00:27:21,099 INFO Saved -> data\bronze\pypi\metadata\pytorch_20260323_222637.json
+2026-03-24 00:27:22,780 INFO Saved -> data\bronze\pypi\downloads_recent\pytorch_20260323_222637.json
+2026-03-24 00:27:24,550 INFO Saved -> data\bronze\pypi\downloads_overall\pytorch_20260323_222637.json
+2026-03-24 00:27:25,551 INFO --------------------------------------------------------------------
+2026-03-24 00:27:25,551 INFO Run complete | success=8 errors=0
+2026-03-24 00:27:25,551 INFO --------------------------------------------------------------------
+2026-03-24 12:30:15,932 INFO PyPI Bronze ingestion started | run=20260324_103015
+2026-03-24 12:30:15,932 INFO --- Processing: pandas ---
+2026-03-24 12:30:17,388 INFO Saved -> data\bronze\pypi\metadata\pandas_20260324_103015.json
+2026-03-24 12:30:19,080 INFO Saved -> data\bronze\pypi\downloads_recent\pandas_20260324_103015.json
+2026-03-24 12:30:20,831 INFO Saved -> data\bronze\pypi\downloads_overall\pandas_20260324_103015.json
+2026-03-24 12:30:21,832 INFO --- Processing: requests ---
+2026-03-24 12:30:23,391 INFO Saved -> data\bronze\pypi\metadata\requests_20260324_103015.json
+2026-03-24 12:30:25,254 INFO Saved -> data\bronze\pypi\downloads_recent\requests_20260324_103015.json
+2026-03-24 12:30:27,336 INFO Saved -> data\bronze\pypi\downloads_overall\requests_20260324_103015.json
+2026-03-24 12:30:28,338 INFO --- Processing: fastapi ---
+2026-03-24 12:30:29,949 INFO Saved -> data\bronze\pypi\metadata\fastapi_20260324_103015.json
+2026-03-24 12:30:31,786 INFO Saved -> data\bronze\pypi\downloads_recent\fastapi_20260324_103015.json
+2026-03-24 12:30:33,832 INFO Saved -> data\bronze\pypi\downloads_overall\fastapi_20260324_103015.json
+2026-03-24 12:30:34,834 INFO --- Processing: numpy ---
+2026-03-24 12:30:36,739 INFO Saved -> data\bronze\pypi\metadata\numpy_20260324_103015.json
+2026-03-24 12:30:38,577 INFO Saved -> data\bronze\pypi\downloads_recent\numpy_20260324_103015.json
+2026-03-24 12:30:39,418 ERROR [numpy] overall downloads failed: 429 Client Error: Too Many Requests for url: https://pypistats.org/api/packages/numpy/overall
+2026-03-24 12:30:40,421 INFO --- Processing: flask ---
+2026-03-24 12:30:41,900 INFO Saved -> data\bronze\pypi\metadata\flask_20260324_103015.json
+2026-03-24 12:30:43,815 INFO Saved -> data\bronze\pypi\downloads_recent\flask_20260324_103015.json
+2026-03-24 12:30:45,913 INFO Saved -> data\bronze\pypi\downloads_overall\flask_20260324_103015.json
+2026-03-24 12:30:46,915 INFO --- Processing: django ---
+2026-03-24 12:30:48,473 INFO Saved -> data\bronze\pypi\metadata\django_20260324_103015.json
+2026-03-24 12:30:50,551 INFO Saved -> data\bronze\pypi\downloads_recent\django_20260324_103015.json
+2026-03-24 12:30:52,480 INFO Saved -> data\bronze\pypi\downloads_overall\django_20260324_103015.json
+2026-03-24 12:30:53,482 INFO --- Processing: scikit-learn ---
+2026-03-24 12:30:55,396 INFO Saved -> data\bronze\pypi\metadata\scikit-learn_20260324_103015.json
+2026-03-24 12:30:57,320 INFO Saved -> data\bronze\pypi\downloads_recent\scikit-learn_20260324_103015.json
+2026-03-24 12:30:59,256 INFO Saved -> data\bronze\pypi\downloads_overall\scikit-learn_20260324_103015.json
+2026-03-24 12:31:00,258 INFO --- Processing: torch ---
+2026-03-24 12:31:01,966 INFO Saved -> data\bronze\pypi\metadata\torch_20260324_103015.json
+2026-03-24 12:31:03,819 INFO Saved -> data\bronze\pypi\downloads_recent\torch_20260324_103015.json
+2026-03-24 12:31:05,844 INFO Saved -> data\bronze\pypi\downloads_overall\torch_20260324_103015.json
+2026-03-24 12:31:06,846 INFO --------------------------------------------------------------------
+2026-03-24 12:31:06,846 INFO Run complete | success=8 errors=0
+2026-03-24 12:31:06,847 INFO --------------------------------------------------------------------
